@@ -301,6 +301,185 @@
             line-height: 1.6;
         }
 
+        /* New Year Banner */
+        .new-year-banner {
+            background: linear-gradient(135deg, #2d3748, #1a202c);
+            border-radius: var(--border-radius);
+            padding: 40px 24px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid var(--primary-gold);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .new-year-banner::before {
+            content: "❄️";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 8rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+        .new-year-banner::after {
+            content: "🎄";
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            font-size: 10rem;
+            opacity: 0.1;
+            transform: rotate(-10deg);
+        }
+
+        .new-year-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-gold);
+            margin-bottom: 16px;
+            text-shadow: 3px 3px 0 rgba(197, 48, 48, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .new-year-title span {
+            display: inline-block;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        .new-year-title span:nth-child(2) { animation-delay: 0.2s; }
+        .new-year-title span:nth-child(3) { animation-delay: 0.4s; }
+        .new-year-title span:nth-child(4) { animation-delay: 0.6s; }
+        .new-year-title span:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); text-shadow: 3px 3px 0 rgba(197, 48, 48, 0.5); }
+            50% { transform: scale(1.1); text-shadow: 0 0 20px var(--primary-gold), 3px 3px 0 var(--primary-red); }
+        }
+
+        .new-year-subtitle {
+            font-size: 1.3rem;
+            color: var(--light);
+            margin-bottom: 16px;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .new-year-date {
+            display: inline-block;
+            background: var(--primary-red);
+            color: var(--primary-gold);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: 2px solid var(--primary-gold);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Book Teaser Section */
+        .book-teaser {
+            background: linear-gradient(135deg, rgba(255, 250, 240, 0.98) 0%, rgba(245, 245, 220, 0.98) 100%);
+            border-radius: var(--border-radius);
+            padding: 40px 24px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+            border: 3px dashed var(--primary-gold);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .book-teaser::before {
+            content: "📖";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            opacity: 0.1;
+            transform: rotate(-10deg);
+        }
+
+        .book-teaser::after {
+            content: "🚀";
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 4rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+        .book-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-teal), #285e61);
+            color: var(--primary-gold);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            border: 2px solid var(--primary-gold);
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-black);
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-title span {
+            color: var(--primary-red);
+            text-decoration: underline wavy var(--primary-gold);
+        }
+
+        .book-description {
+            font-size: 1.1rem;
+            color: var(--secondary-teal);
+            max-width: 700px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--primary-red), #9b2c2c);
+            color: var(--primary-gold);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid var(--primary-gold);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .book-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, #9b2c2c, var(--primary-red));
+        }
+
         /* Benefits Container */
         .benefits-container {
             display: flex;
@@ -477,6 +656,9 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .course-card::before {
@@ -706,7 +888,7 @@
             font-size: 0.92rem;
         }
 
-        /* Widgets Section - NEW */
+        /* Widgets Section */
         .widgets-section {
             background: linear-gradient(135deg, rgba(255, 250, 240, 0.95) 0%, rgba(245, 245, 220, 0.95) 100%);
             border-radius: var(--border-radius);
@@ -791,6 +973,9 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .key-card::before {
@@ -1255,7 +1440,40 @@
             </div>
         </section>
 
-        <!-- NEW: Widgets Section -->
+        <!-- NEW: New Year Banner -->
+        <section class="new-year-banner">
+            <div class="hero-content">
+                <h2 class="new-year-title">
+                    <span>🎄</span> С <span>Н</span>овым <span>Г</span>одом <span>🎄</span>
+                </h2>
+                <p class="new-year-subtitle">Пусть 2026 год принесет вам процветание и мудрые решения!</p>
+                <div class="new-year-date">
+                    <i class="fas fa-champagne-glasses"></i> 2026 <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Book Teaser Section -->
+        <section class="book-teaser">
+            <div class="hero-content">
+                <div class="book-badge">
+                    <i class="fas fa-book-open"></i> СКОРО
+                </div>
+                <h3 class="book-title">
+                    Книга <span>«Бизнестур»</span>
+                </h3>
+                <p class="book-description">
+                    Уникальное издание, объединяющее мудрость востока и современные бизнес-стратегии. 
+                    Следите за анонсами и готовьтесь к большому путешествию в мир успеха!
+                </p>
+                <a href="https://smartprogress.do/goal/434563/" target="_blank" class="book-link">
+                    <i class="fas fa-eye"></i> Читать репортаж
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Widgets Section -->
         <section class="widgets-section">
             <div class="widgets-header">
                 <div class="section-badge">
@@ -1264,230 +1482,223 @@
                 <p class="widgets-subtitle">С вашей подпиской вы получаете персональные ключи доступа к SaaS виджетам и инструментам для максимальной эффективности</p>
             </div>
     
-
-    <a href="https://forkpack.ru/#fp" target="_blank" class="key-card block">
-        <div class="key-header hidden">
-            <div class="key-icon hidden">
-                <i class="fas fa-podcast hidden"></i>
-            </div>
-            <h3 class="key-title">forkpack</h3>
-        </div>
-        <p class="key-description">Все необходимые виджеты для вашего сайта в одном пакете</p>
-        <span class="key-access">Ключ активирован</span>
-    </a>
-
-    <div class="key-card hidden">
-        <div class="key-header">
-            <div class="key-icon">
-                <i class="fas fa-calendar-alt"></i>
-            </div>
-            <h3 class="key-title">Календарь Событий</h3>
-        </div>
-        <p class="key-description">Эксклюзивные онлайн-встречи с авторами, мастер-классы и вебинары только для подписчиков</p>
-        <span class="key-access">Ключ активирован</span>
-    </div>
-
-    <div class="key-card hidden">
-        <div class="key-header">
-            <div class="key-icon">
-                <i class="fas fa-download"></i>
-            </div>
-            <h3 class="key-title">Ресурсы для скачивания</h3>
-        </div>
-        <p class="key-description">Шаблоны, чек-листы, рабочие тетради и дополнительные материалы к каждому выпуску</p>
-        <span class="key-access">Ключ активирован</span>
-    </div>
-
-
-    <div class="key-card hidden">
-        <div class="key-header">
-            <div class="key-icon">
-                <i class="fas fa-certificate"></i>
-            </div>
-            <h3 class="key-title">Сертификаты об обучении</h3>
-        </div>
-        <p class="key-description">Официальные сертификаты после прохождения образовательных курсов для вашего портфолио
-    </div>
-    </section>
-
-    <div class="benefits-container">
-        <div class="benefit-card">
-            <div class="benefit-icon-container">
-                <i class="fas fa-graduation-cap benefit-icon"></i>
-            </div>
-            <h3 class="benefit-title">Образовательные Курсы</h3>
-            <p class="benefit-description">Доступ к лучшим курсам на платформе Степик для непрерывного саморазвития и профессионального роста</p>
-
-            <div class="courses-section">
-                <div class="section-header">
-                    <div class="stepik-logo">
-                        <div class="stepik-icon">S</div>
-                        <div class="stepik-text">Степик</div>
+            <div class="keys-container">
+                <a href="https://forkpack.ru/#fp" target="_blank" class="key-card">
+                    <div class="key-header">
+                        <div class="key-icon">
+                            <i class="fas fa-podcast"></i>
+                        </div>
+                        <h3 class="key-title">forkpack</h3>
                     </div>
-                    <a href="https://stepik.org/users/468787925" target="_blank" class="btn btn-secondary">
-                        <i class="fas fa-arrow-right"></i> Все курсы
-                    </a>
+                    <p class="key-description">Все необходимые виджеты для вашего сайта в одном пакете</p>
+                    <span class="key-access">Ключ активирован</span>
+                </a>
+
+                <div class="key-card">
+                    <div class="key-header">
+                        <div class="key-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="key-title">Календарь Событий</h3>
+                    </div>
+                    <p class="key-description">Эксклюзивные онлайн-встречи с авторами, мастер-классы и вебинары только для подписчиков</p>
+                    <span class="key-access">Ключ активирован</span>
                 </div>
 
-                <div class="courses-grid">
-                     <a href="https://stepik.org/course/176603" target="_blank" class="course-card block">
-                        <div class="course-icon art">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h4 class="course-title">Интерактивная презентация средствами ReactJS в браузере</h4>
-                        <p class="course-description">Большинство шагов курса это прикладное применение кода, ориентированное на приложение разных масштабов</p>
-                        <div class="course-meta hidden">
-                            <span class="course-duration hidden">42 урока</span>
-                        </div>
-                    </a>
-
-                     <a href="https://stepik.org/course/269329" target="_blank" class="course-card block">
-                        <div class="course-icon philosophy">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h4 class="course-title">Фриланс 2026: Полный курс для начинающих</h4>
-                        <p class="course-description">После курса у вас останется не абстрактная идея «когда‑нибудь сделать портфолио», а уже готовый рабочий инструмент</p>
-                        <div class="course-meta">
-                            <span class="course-duration hidden">36 уроков</span>
-                        </div>
-                    </a>
-
-                    <a href="https://stepik.org/course/272510" target="_blank" class="course-card block">
-                        <div class="course-icon language">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <h4 class="course-title">Интересные истории Артемия Лебедева</h4>
-                        <p class="course-description">Курс создан, чтобы заполнить пробел в биографии Артемия Лебедева</p>
-                        <div class="course-meta">
-                            <span class="course-duration hidden">85 уроков</span>
-                        </div>
-                    </a>
-
-                  
-                </div>
-            </div>
-        </div>
-
-        <div class="benefit-card">
-            <div class="benefit-icon-container green">
-                <i class="fas fa-book-open benefit-icon"></i>
-            </div>
-            <h3 class="benefit-title">Еженедельный Журнал</h3>
-            <p class="benefit-description">Свежие выпуски каждую неделю в удобном формате с возможностью онлайн чтения на любом устройстве</p>
-
-            <div class="journal-section">
-                <div class="section-icon">
-                    <i class="fas fa-newspaper"></i>
-                </div>
-                <h4 class="section-title">Онлайн Читалка</h4>
-                <p class="section-description">Читайте журнал на любом устройстве с сохранением закладок, заметок и персональных настроек</p>
-
-                <div class="features-list">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <span class="feature-text">Любое устройство</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-bookmark"></i>
-                        </div>
-                        <span class="feature-text">Закладки</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-sync"></i>
-                        </div>
-                        <span class="feature-text">Синхронизация</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
+                <div class="key-card">
+                    <div class="key-header">
+                        <div class="key-icon">
                             <i class="fas fa-download"></i>
                         </div>
-                        <span class="feature-text">PDF формат</span>
+                        <h3 class="key-title">Ресурсы для скачивания</h3>
                     </div>
+                    <p class="key-description">Шаблоны, чек-листы, рабочие тетради и дополнительные материалы к каждому выпуску</p>
+                    <span class="key-access">Ключ активирован</span>
                 </div>
 
-                <a href="https://fedoseevsm.github.io/magazine/0.html" target="_blank" class="btn btn-primary btn-block">
-                    <i class="fas fa-eye"></i> Пример журнала
-                </a>
+                <div class="key-card">
+                    <div class="key-header">
+                        <div class="key-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="key-title">Сертификаты об обучении</h3>
+                    </div>
+                    <p class="key-description">Официальные сертификаты после прохождения образовательных курсов для вашего портфолио</p>
+                    <span class="key-access">Ключ активирован</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="benefits-container">
+            <div class="benefit-card">
+                <div class="benefit-icon-container">
+                    <i class="fas fa-graduation-cap benefit-icon"></i>
+                </div>
+                <h3 class="benefit-title">Образовательные Курсы</h3>
+                <p class="benefit-description">Доступ к лучшим курсам на платформе Степик для непрерывного саморазвития и профессионального роста</p>
+
+                <div class="courses-section">
+                    <div class="section-header">
+                        <div class="stepik-logo">
+                            <div class="stepik-icon">S</div>
+                            <div class="stepik-text">Степик</div>
+                        </div>
+                        <a href="https://stepik.org/users/468787925" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-arrow-right"></i> Все курсы
+                        </a>
+                    </div>
+
+                    <div class="courses-grid">
+                         <a href="https://stepik.org/course/176603" target="_blank" class="course-card">
+                            <div class="course-icon art">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h4 class="course-title">Интерактивная презентация средствами ReactJS в браузере</h4>
+                            <p class="course-description">Большинство шагов курса это прикладное применение кода, ориентированное на приложение разных масштабов</p>
+                            <div class="course-meta hidden">
+                                <span class="course-duration hidden">42 урока</span>
+                            </div>
+                        </a>
+
+                         <a href="https://stepik.org/course/269329" target="_blank" class="course-card">
+                            <div class="course-icon philosophy">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4 class="course-title">Фриланс 2026: Полный курс для начинающих</h4>
+                            <p class="course-description">После курса у вас останется не абстрактная идея «когда‑нибудь сделать портфолио», а уже готовый рабочий инструмент</p>
+                            <div class="course-meta">
+                                <span class="course-duration hidden">36 уроков</span>
+                            </div>
+                        </a>
+
+                        <a href="https://stepik.org/course/272510" target="_blank" class="course-card">
+                            <div class="course-icon language">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <h4 class="course-title">Интересные истории Артемия Лебедева</h4>
+                            <p class="course-description">Курс создан, чтобы заполнить пробел в биографии Артемия Лебедева</p>
+                            <div class="course-meta">
+                                <span class="course-duration hidden">85 уроков</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon-container green">
+                    <i class="fas fa-book-open benefit-icon"></i>
+                </div>
+                <h3 class="benefit-title">Еженедельный Журнал</h3>
+                <p class="benefit-description">Свежие выпуски каждую неделю в удобном формате с возможностью онлайн чтения на любом устройстве</p>
+
+                <div class="journal-section">
+                    <div class="section-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h4 class="section-title">Онлайн Читалка</h4>
+                    <p class="section-description">Читайте журнал на любом устройстве с сохранением закладок, заметок и персональных настроек</p>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <span class="feature-text">Любое устройство</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </div>
+                            <span class="feature-text">Закладки</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-sync"></i>
+                            </div>
+                            <span class="feature-text">Синхронизация</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <span class="feature-text">PDF формат</span>
+                        </div>
+                    </div>
+
+                    <a href="https://fedoseevsm.github.io/magazine/0.html" target="_blank" class="btn btn-primary btn-block">
+                        <i class="fas fa-eye"></i> Пример журнала
+                    </a>
+                </div>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon-container orange">
+                    <i class="fas fa-comments benefit-icon"></i>
+                </div>
+                <h3 class="benefit-title">Сообщество</h3>
+                <p class="benefit-description">Присоединяйтесь к закрытому телеграм-чату единомышленников для общения, обмена опытом и поддержки</p>
+
+                <div class="telegram-section">
+                    <div class="section-icon">
+                        <i class="fab fa-telegram-plane"></i>
+                    </div>
+                    <h4 class="section-title">Телеграм Чат</h4>
+                    <p class="section-description">Общайтесь с авторами журнала, экспертами и другими читателями в дружелюбной атмосфере</p>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="feature-text">Верифицированные эксперты</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <span class="feature-text">Мгновенная поддержка</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="feature-text">Эксклюзивный контент</span>
+                        </div>
+                    </div>
+
+                    <a href="https://t.me/+a9CM2qMtcfU5ZmEy" class="btn btn-primary btn-block">
+                        <i class="fab fa-telegram"></i> Присоединиться
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="benefit-card">
-            <div class="benefit-icon-container orange">
-                <i class="fas fa-comments benefit-icon"></i>
+        <section class="price-section">
+            <div class="price-badge">
+                <i class="fas fa-gift"></i> СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ
             </div>
-            <h3 class="benefit-title">Сообщество</h3>
-            <p class="benefit-description">Присоединяйтесь к закрытому телеграм-чату единомышленников для общения, обмена опытом и поддержки</p>
-
-            <div class="telegram-section">
-                <div class="section-icon">
-                    <i class="fab fa-telegram-plane"></i>
-                </div>
-                <h4 class="section-title">Телеграм Чат</h4>
-                <p class="section-description">Общайтесь с авторами журнала, экспертами и другими читателями в дружелюбной атмосфере</p>
-
-                <div class="features-list">
-                    <div class="hidden">
-                        <div class="feature-icon hidden">
-                            <i class="fas fa-users hidden"></i>
-                        </div>
-                        <span class="feature-text hidden">1000+ участников</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <span class="feature-text">Верифицированные эксперты</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <span class="feature-text">Мгновенная поддержка</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="feature-text">Эксклюзивный контент</span>
-                    </div>
-                </div>
-
-                <a href="https://t.me/+a9CM2qMtcfU5ZmEy" class="btn btn-primary btn-block">
-                    <i class="fab fa-telegram"></i> Присоединиться
-                </a>
+            <h3 class="price-title">Бессрочная подписка</h3>
+            <div class="price-amount">
+                <span class="price-currency">₽</span>9 990
             </div>
-        </div>
-    </div>
+            <p class="price-description">Один раз оплатили — доступ ко всем материалам, курсам и эксклюзивным бонусам</p>
 
-    <section class="price-section">
-        <div class="price-badge">
-            <i class="fas fa-gift"></i> СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ
-        </div>
-        <h3 class="price-title">Бессрочная подписка</h3>
-        <div class="price-amount">
-            <span class="price-currency">₽</span>9 990
-        </div>
-        <p class="price-description">Один раз оплатили — доступ ко всем материалам, курсам и эксклюзивным бонусам</p>
+            <a href="https://qr.nspk.ru/AD10004VEUFJ5J5E8AJ91RHJ2ED8HF0Q" target="_blank"  class="btn btn-primary">
+                <i class="fas fa-shopping-cart"></i> Оформить подписку
+            </a>
 
-        <a href="https://qr.nspk.ru/AD10004VEUFJ5J5E8AJ91RHJ2ED8HF0Q" target="_blank"  class="btn btn-primary">
-            <i class="fas fa-shopping-cart"></i> Оформить подписку
-        </a>
+            <div class="guarantee-badge">
+                <i class="fas fa-shield-alt"></i> Гарантия возврата
+            </div>
+        </section>
 
-        <div class="guarantee-badge">
-            <i class="fas fa-shield-alt"></i> Гарантия возврата
-        </div>
-    </section>
-
-    <footer class="hidden">
-        <p>Журнал ЮС © 2026 | Мудрость Востока для современного человека</p>
-        <p style="margin-top: 8px;">
-            Вопросы? Напишите нам: <span class="footer-highlight">info@zhurnalus.ru</span>
-        </p>
-    </footer>
+        <footer class="hidden">
+            <p>Журнал ЮС © 2026 | Мудрость Востока для современного человека</p>
+            <p style="margin-top: 8px;">
+                Вопросы? Напишите нам: <span class="footer-highlight">info@zhurnalus.ru</span>
+            </p>
+        </footer>
     </div>
 
     <!-- Mobile Bottom Bar -->
