@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Российские технологии ИИ | Курс на Stepik</title>
+    <!-- Подключаем шрифт Golos Text - современный, отечественный -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        /* Сброс стилей и базовые настройки */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Golos Text", sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Типографика */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #4a4a4a;
+            max-width: 720px;
+            margin-bottom: 2rem;
+        }
+
+        /* Секции */
+        section {
+            padding: 80px 0;
+        }
+
+        section:first-of-type {
+            padding-top: 120px;
+        }
+
+        /* Сетка */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+        /* Карточки */
+        .card {
+            padding: 32px;
+            background: #f8f8f8;
+            border-radius: 24px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Кнопки */
+        .button {
+            display: inline-block;
+            padding: 20px 48px;
+            background: #2563eb; /* Ярко-синий */
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.25rem;
+            border-radius: 60px;
+            transition: background-color 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.3);
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        .button-large {
+            padding: 24px 64px;
+            font-size: 1.5rem;
+        }
+
+        .button-center {
+            display: flex;
+            justify-content: center;
+            margin-top: 48px;
+        }
+
+        /* Герой (первый экран) */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+            right: -200px;
+            top: -200px;
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+            left: -100px;
+            bottom: -100px;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Блок с правилами */
+        .rules-block {
+            background: #f0f7ff;
+            border-radius: 32px;
+            padding: 48px;
+            margin-top: 48px;
+        }
+
+        .rules-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .rules-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rules-list li::before {
+            content: "•";
+            color: #2563eb;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+            section:first-of-type { padding-top: 100px; }
+            
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .card { padding: 24px; }
+            
+            .button-large {
+                padding: 20px 40px;
+                font-size: 1.25rem;
+            }
+            
+            .hero { min-height: auto; }
+            
+            .rules-block { padding: 32px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1.1rem; }
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Китайский текст может быть немного крупнее для лучшей читаемости */
+        .chinese-text {
+            font-size: 1.1em;
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Герой (первый экран) с большой синей кнопкой -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="fade-in">俄罗斯人工智能技术:<br>从基础到实践</h1>
+            <p class="subtitle fade-in" style="animation-delay: 0.1s">
+                学习神经网络架构、伦理标准以及俄罗斯联邦人工智能的法律监管。
+                来自行业专家的实践课程。
+            </p>
+            <!-- Большая синяя кнопка на китайском -->
+            <div class="fade-in" style="animation-delay: 0.2s">
+                <a href="https://stepik.org/course/275714" class="button button-large" target="_blank" rel="noopener noreferrer">
+                    前往课程
+                </a>
+                <p style="margin-top: 16px; color: #666;">课程开始: 2026年3月15日 • 免费学习</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Кому подойдет курс -->
+    <section>
+        <div class="container">
+            <h2>这门课程适合谁？</h2>
+            <div class="grid-4">
+                <div class="card">
+                    <span class="icon">💻</span>
+                    <h3>开发者</h3>
+                    <p>想在项目中应用AI？学习符合俄罗斯特点的现代库和框架。</p>
+                </div>
+                <div class="card">
+                    <span class="icon">📊</span>
+                    <h3>数据分析师</h3>
+                    <p>掌握俄罗斯数据集和符合本地标准的分析工具。</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🚀</span>
+                    <h3>产品经理</h3>
+                    <p>理解如何正确给AI团队分配任务并评估技术风险。</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🔬</span>
+                    <h3>研究人员</h3>
+                    <p>深入学习现代机器学习方法，为科学实验奠定基础。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Программа курса -->
+    <section style="background: #f8f8f8;">
+        <div class="container">
+            <h2>课程大纲</h2>
+            <p class="subtitle">4个模块 · 32节课 · 8个实践项目</p>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>模块 1. 俄罗斯AI基础</h3>
+                    <p>发展历史、主要市场参与者、直到2030年的国家AI发展战略。</p>
+                </div>
+                <div class="card">
+                    <h3>模块 2. 技术栈</h3>
+                    <p>俄罗斯开发AI解决方案的框架、库和平台概览。</p>
+                </div>
+                <div class="card">
+                    <h3>模块 3. 法律监管</h3>
+                    <p>AI联邦法律、伦理标准、个人数据处理。</p>
+                </div>
+                <div class="card">
+                    <h3>模块 4. 实践应用</h3>
+                    <p>开发MVP、集成到业务流程中、俄罗斯公司案例。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преподаватели -->
+    <section>
+        <div class="container">
+            <h2>课程作者和专家</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>亚历山大·诺维科夫</h3>
+                    <p style="color: #2563eb; margin-bottom: 12px;">Sber AI实验室技术总监</p>
+                    <p>10+年机器学习经验，计算机视觉领域专利作者。</p>
+                </div>
+                <div class="card">
+                    <h3>叶莲娜·沃尔科娃</h3>
+                    <p style="color: #2563eb; margin-bottom: 12px;">Yandex AI伦理方向负责人</p>
+                    <p>AI产品伦理标准制定者，数字发展部工作组成员。</p>
+                </div>
+                <div class="card">
+                    <h3>德米特里·索科洛夫</h3>
+                    <p style="color: #2563eb; margin-bottom: 12px;">VK首席开发人员</p>
+                    <p>推荐系统和自然语言处理专家。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Формат и правила пользования (специальный блок) -->
+    <section style="background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);">
+        <div class="container">
+            <h2>学习形式和使用规则</h2>
+            <div class="rules-block">
+                <div style="display: grid; gap: 40px; grid-template-columns: 1fr 1fr;">
+                    <div>
+                        <h3>学习形式</h3>
+                        <ul class="rules-list">
+                            <li>简短视频讲座 (10-15分钟)</li>
+                            <li>每个主题后的自测题</li>
+                            <li>自动检查的实践任务</li>
+                            <li>专家评审的最终项目</li>
+                            <li>24/7任何设备访问材料</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>规则和要求</h3>
+                        <ul class="rules-list">
+                            <li>Python基础知识 (实践模块需要)</li>
+                            <li>自由安排：无截止日期，按自己的节奏学习</li>
+                            <li>完成最终项目后颁发证书</li>
+                            <li>所有材料符合俄罗斯联邦法律</li>
+                            <li>聊天技术支持：24小时内回复</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Финальный призыв к действию с большой синей кнопкой -->
+    <section style="text-align: center;">
+        <div class="container">
+            <h2>立即开始学习</h2>
+            <p class="subtitle" style="margin-left: auto; margin-right: auto;">
+                加入数千名已经在Stepik平台上学习俄罗斯AI技术的学生行列。
+            </p>
+            <div class="button-center">
+                <a href="https://stepik.org/course/275714" class="button button-large" target="_blank" rel="noopener noreferrer">
+                    前往课程
+                </a>
+            </div>
+            <p style="margin-top: 24px; color: #666;">在Stepik注册后即可访问</p>
+        </div>
+    </section>
+
+    <!-- Простой футер -->
+    <footer style="padding: 48px 0; border-top: 1px solid #eaeaea;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 8px;">俄罗斯人工智能技术课程</p>
+                    <p style="color: #666;">© 2026 保留所有权利</p>
+                </div>
+                <div style="display: flex; gap: 32px;">
+                    <a href="#" style="color: #666; text-decoration: none;">隐私政策</a>
+                    <a href="#" style="color: #666; text-decoration: none;">用户协议</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
