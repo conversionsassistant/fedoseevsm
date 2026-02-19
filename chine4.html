@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯人工智能技术 | 课程在Stepik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Golos Text", sans-serif;
+            line-height: 1.5;
+            background: linear-gradient(135deg, #0f0c1f 0%, #1a142b 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Фоновые элементы */
+        .subtle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .subtle-bg::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%);
+            right: -300px;
+            top: -300px;
+            border-radius: 50%;
+        }
+
+        .subtle-bg::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.15) 0%, transparent 70%);
+            left: -200px;
+            bottom: -200px;
+            border-radius: 50%;
+        }
+
+        /* Подсветка кнопки - новая цветовая схема */
+        .button-glow {
+            position: relative;
+            display: inline-block;
+        }
+
+        .button-glow::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.8) 0%, rgba(78, 205, 196, 0.4) 50%, transparent 80%);
+            border-radius: 80px;
+            animation: soft-pulse 3s ease-in-out infinite;
+            z-index: -1;
+            filter: blur(15px);
+        }
+
+        .button-glow::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 80px;
+            animation: border-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes soft-pulse {
+            0%, 100% { 
+                opacity: 0.4;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.8;
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes border-pulse {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1);
+                border-color: #ff6b6b;
+            }
+            50% { 
+                opacity: 0.8;
+                transform: scale(1.03);
+                border-color: #4ecdc4;
+            }
+        }
+
+        /* Герой */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 720px;
+            margin-bottom: 2rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 20px 48px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.25rem;
+            border-radius: 60px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .button-large {
+            padding: 24px 64px;
+            font-size: 1.5rem;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(255, 107, 107, 0.1);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #ff6b6b;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .rules-block {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            border-radius: 32px;
+            padding: 48px;
+            margin-top: 48px;
+        }
+
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 107, 107, 0.1);
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 768px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="subtle-bg"></div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>俄罗斯人工智能技术:<br>从基础到实践</h1>
+            <p class="subtitle">
+                学习神经网络架构、伦理标准以及俄罗斯联邦人工智能的法律监管。
+                来自行业专家的实践课程。
+            </p>
+            
+            <div class="button-glow">
+                <a href="https://stepik.org/course/275714" class="button button-large" target="_blank" rel="noopener noreferrer">
+                    前往课程
+                </a>
+            </div>
+            
+            <p style="margin-top: 20px; color: #94a3b8;">开始: 2026年3月15日 · 免费</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>适合谁？</h2>
+            <div class="grid-4">
+                <div class="card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem; color: #ff6b6b;">💻</div>
+                    <h3 style="color: white; margin-bottom: 0.5rem;">开发者</h3>
+                    <p style="color: #94a3b8;">Изучите российские AI-фреймворки</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem; color: #4ecdc4;">📊</div>
+                    <h3 style="color: white; margin-bottom: 0.5rem;">数据分析师</h3>
+                    <p style="color: #94a3b8;">Работайте с локальными дата-сетами</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem; color: #ff6b6b;">🚀</div>
+                    <h3 style="color: white; margin-bottom: 0.5rem;">产品经理</h3>
+                    <p style="color: #94a3b8;">Управляйте AI-продуктами</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem; color: #4ecdc4;">🔬</div>
+                    <h3 style="color: white; margin-bottom: 0.5rem;">研究人员</h3>
+                    <p style="color: #94a3b8;">Углублённые методы ML</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Правила</h2>
+            <div class="rules-block">
+                <ul class="rules-list">
+                    <li>✓ 简短视频讲座 (10-15分钟)</li>
+                    <li>✓ 自动检查的实践任务</li>
+                    <li>✓ Python基础知识 (实践模块需要)</li>
+                    <li>✓ 自由安排：无截止日期</li>
+                    <li>✓ 完成最终项目后颁发证书</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section style="text-align: center;">
+        <div class="container">
+            <h2>立即开始</h2>
+            <p class="subtitle" style="margin: 0 auto 2rem;">
+                加入数千名已经在Stepik平台上学习的学生行列。
+            </p>
+            <div class="button-glow">
+                <a href="https://stepik.org/course/275714" class="button button-large" target="_blank" rel="noopener noreferrer">
+                    前往课程
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
